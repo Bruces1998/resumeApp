@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block body_block%}
+  <h1>Welcome to Resume Generator</h1>
+  {% if user.is_authenticated %}
+    <a href="{% url 'resumeApp:profile' %}">Create Now!</a>
+    {% endif %}
+{% endblock%}

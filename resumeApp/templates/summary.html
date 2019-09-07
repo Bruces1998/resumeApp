@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+
+
+
+
+
+{% if user.is_authenticated %}
+
+
+
+
+
+<p>{{user.profiles.firstname}}</p>
+
+
+
+
+
+
+
+{% for skill in user.skills.all %}
+
+
+
+    <p>{{skill.name}}</p>
+
+
+
+
+
+{% endfor %}
+
+
+
+{% for experience in user.experiences.all %}
+<p>{{ experience.bio }}</p>
+
+{% endfor %}
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% endblock %}

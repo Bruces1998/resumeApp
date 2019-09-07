@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid">
+        <ul class='nav navbar-nav'>
+
+          <li><a class=' navbar-brand bigbrand' href="{% url 'homepage' %}">Resume Generator</a></li>
+
+
+          <li><a href="https://vit.edu.in/">About</a></li>
+          <li><a href="https://www.github.com">Github</a></li>
+          <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+
+
+        </ul>
+
+
+
+        <ul class='nav navbar-nav navbar-right'>
+          {% if user.is_authenticated %}
+            <!-- <li><a href="#">Share Now</a>
+            </li> -->
+
+
+
+
+
+
+            <li>
+                <a href="{% url 'logout' %}">Log Out</a>
+            </li>
+
+            <li>
+                <a href="#">Welcome: {{user.username}}</a>
+            </li>
+            {% else %}
+            <li><a href="{% url 'resumeApp:login' %}"><span class='glyphicon glyphicon-user'></span>Login</a></li>
+            <li><a href="{% url 'resumeApp:signup' %}"><span class='glyphicon glyphicon-user'></span>Sign Up</a></li>
+
+          {% endif %}
+
+      </div>
+
+    </nav>
+
+
+
+
+
+    <div class="container">
+      <div class="jumbotron">
+        {% block body_block%}
+        {% endblock %}
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
